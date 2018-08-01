@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		795EB569210F51B000A7270D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB568210F51B000A7270D /* AppDelegate.swift */; };
-		795EB56B210F51B000A7270D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB56A210F51B000A7270D /* ViewController.swift */; };
+		795EB56B210F51B000A7270D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB56A210F51B000A7270D /* SwipeViewController.swift */; };
 		795EB56E210F51B000A7270D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795EB56C210F51B000A7270D /* Main.storyboard */; };
 		795EB570210F51B300A7270D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795EB56F210F51B300A7270D /* Assets.xcassets */; };
 		795EB573210F51B300A7270D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795EB571210F51B300A7270D /* LaunchScreen.storyboard */; };
+		795EB57B2110B4D100A7270D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB57A2110B4D100A7270D /* LoginViewController.swift */; };
+		795EB57D2111A82200A7270D /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB57C2111A82200A7270D /* Switcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		795EB565210F51B000A7270D /* fyns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fyns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		795EB568210F51B000A7270D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		795EB56A210F51B000A7270D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		795EB56A210F51B000A7270D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		795EB56D210F51B000A7270D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		795EB56F210F51B300A7270D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		795EB572210F51B300A7270D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		795EB574210F51B300A7270D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		795EB57A2110B4D100A7270D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		795EB57C2111A82200A7270D /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 		795EB567210F51B000A7270D /* fyns */ = {
 			isa = PBXGroup;
 			children = (
+				795EB57C2111A82200A7270D /* Switcher.swift */,
 				795EB568210F51B000A7270D /* AppDelegate.swift */,
-				795EB56A210F51B000A7270D /* ViewController.swift */,
+				795EB57A2110B4D100A7270D /* LoginViewController.swift */,
+				795EB56A210F51B000A7270D /* SwipeViewController.swift */,
 				795EB56C210F51B000A7270D /* Main.storyboard */,
 				795EB56F210F51B300A7270D /* Assets.xcassets */,
 				795EB571210F51B300A7270D /* LaunchScreen.storyboard */,
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795EB56B210F51B000A7270D /* ViewController.swift in Sources */,
+				795EB57B2110B4D100A7270D /* LoginViewController.swift in Sources */,
+				795EB56B210F51B000A7270D /* SwipeViewController.swift in Sources */,
+				795EB57D2111A82200A7270D /* Switcher.swift in Sources */,
 				795EB569210F51B000A7270D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
