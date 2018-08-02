@@ -12,6 +12,7 @@ class SwipeViewController: UIViewController {
     
     var popularShows = [Any]()
     var showId = 0
+    var type: String?
 
     @IBOutlet weak var imageShow: UIImageView! {
         didSet {
@@ -84,51 +85,53 @@ class SwipeViewController: UIViewController {
     }
     
     func saveShow(category: Int) {
-        let urlPath = "http://localhost:3001/api/shows"
-        guard let endpoint = URL(string: urlPath) else {
-            print("Error creating endpoint")
-            return
-        }
-        var json = [String:Any]()
-        
-        json["userId"] = UserDefaults.standard.integer(forKey: "id")
-        json["showId"] = self.showId
-        json["category"] = category
-        
-        do {
-            let data = try JSONSerialization.data(withJSONObject: json, options: [])
+        if self.showId > 0 {
+            let urlPath = "http://localhost:3001/api/shows"
+            guard let endpoint = URL(string: urlPath) else {
+                print("Error creating endpoint")
+                return
+            }
+            var json = [String:Any]()
             
-            var request = URLRequest(url: endpoint)
-            request.httpMethod = "POST"
-            request.httpBody = data
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            json["userId"] = UserDefaults.standard.integer(forKey: "id")
+            json["showId"] = self.showId
+            json["category"] = category
             
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                do {
-                    guard let data = data else {
-                        throw JSONError.NoData
+            do {
+                let data = try JSONSerialization.data(withJSONObject: json, options: [])
+                
+                var request = URLRequest(url: endpoint)
+                request.httpMethod = "POST"
+                request.httpBody = data
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    do {
+                        guard let data = data else {
+                            throw JSONError.NoData
+                        }
+                        guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
+                            throw JSONError.ConversionFailed
+                        }
+                        print(json)
+                        DispatchQueue.main.async{
+                            self.getTVShow()
+                        }
+                    } catch let error as JSONError {
+                        print(error.rawValue)
+                    } catch let error as NSError {
+                        print(error.debugDescription)
                     }
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
-                        throw JSONError.ConversionFailed
-                    }
-                    print(json)
-                    DispatchQueue.main.async{
-                        self.getTVShow()
-                    }
-                } catch let error as JSONError {
-                    print(error.rawValue)
-                } catch let error as NSError {
-                    print(error.debugDescription)
-                }
-                }.resume()
-        } catch {
+                    }.resume()
+            } catch {
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(type)
         for page in 1...2 {
             print(page)
             let urlPath = "https://api.themoviedb.org/3/tv/popular?api_key=153e4cae613524ffa8744e905913a417&page=" + String(page)

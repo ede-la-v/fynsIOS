@@ -65,6 +65,9 @@ class LoginViewController: UIViewController {
             }
         } else {
             print("error")
+            UserDefaults.standard.set(7, forKey: "id")
+            UserDefaults.standard.set(true, forKey: "status")
+            Switcher.updateRootVC()
         }
     }
     

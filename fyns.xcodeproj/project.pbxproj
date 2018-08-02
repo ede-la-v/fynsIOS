@@ -14,6 +14,7 @@
 		795EB573210F51B300A7270D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795EB571210F51B300A7270D /* LaunchScreen.storyboard */; };
 		795EB57B2110B4D100A7270D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB57A2110B4D100A7270D /* LoginViewController.swift */; };
 		795EB57D2111A82200A7270D /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EB57C2111A82200A7270D /* Switcher.swift */; };
+		7974C2232111EE1700C6DECE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7974C2222111EE1700C6DECE /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		795EB574210F51B300A7270D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		795EB57A2110B4D100A7270D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		795EB57C2111A82200A7270D /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		7974C2222111EE1700C6DECE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		795EB567210F51B000A7270D /* fyns */ = {
 			isa = PBXGroup;
 			children = (
+				7974C2222111EE1700C6DECE /* NavigationViewController.swift */,
 				795EB57C2111A82200A7270D /* Switcher.swift */,
 				795EB568210F51B000A7270D /* AppDelegate.swift */,
 				795EB57A2110B4D100A7270D /* LoginViewController.swift */,
@@ -144,6 +147,7 @@
 				795EB57B2110B4D100A7270D /* LoginViewController.swift in Sources */,
 				795EB56B210F51B000A7270D /* SwipeViewController.swift in Sources */,
 				795EB57D2111A82200A7270D /* Switcher.swift in Sources */,
+				7974C2232111EE1700C6DECE /* NavigationViewController.swift in Sources */,
 				795EB569210F51B000A7270D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
