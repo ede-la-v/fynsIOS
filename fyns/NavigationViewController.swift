@@ -39,6 +39,5 @@ class NavigationViewController: UIViewController {
             }
         }
         
-        print(segue.identifier)
     }
 }

@@ -3,7 +3,7 @@
 import UIKit
 import Foundation
 
-class SwipeViewController: UIViewController {
+class ChangeShowViewController: UIViewController {
     
     enum JSONError: String, Error {
         case NoData = "ERROR: no data"
@@ -14,7 +14,7 @@ class SwipeViewController: UIViewController {
     var showId = 0
     var type: String?
     var backend: String?
-
+    
     @IBOutlet weak var imageShow: UIImageView! {
         didSet {
             let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeShow))
@@ -101,30 +101,64 @@ class SwipeViewController: UIViewController {
         }
     }
     
-    func loadPopular() {
-        for page in 1...2 {
-            print(page)
-            let urlPath = "https://api.themoviedb.org/3/tv/popular?api_key=153e4cae613524ffa8744e905913a417&page=" + String(page)
-            HttpRequest.get(url: urlPath) { (json) in
+    func loadExisting(category: Int) {
+        print("string",String(category))
+        var urlPath = "";
+        if let back = self.backend {
+            urlPath = back +
+                "/shows/" +
+                String(UserDefaults.standard.integer(forKey: "id")) + "/" +
+                String(category)
+        }
+        guard let endpoint = URL(string: urlPath) else {
+            print("Error creating endpoint")
+            return
+        }
+        print(urlPath)
+        URLSession.shared.dataTask(with: endpoint) { (data, response, error) in
+            do {
+                guard let data = data else {
+                    throw JSONError.NoData
+                }
+                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
+                    throw JSONError.ConversionFailed
+                }
                 if let results = json["results"] as? [Any] {
-                    self.shows += results
-                    print("ici", self.shows.count / 20)
+                    self.shows = results
+                    print(self.shows.count)
                     self.getTVShow()
                 }
+            } catch let error as JSONError {
+                print(error.rawValue)
+            } catch let error as NSError {
+                print(error.debugDescription)
             }
-        }
+            }.resume()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadPopular()
+        let key = "Backend Url"
+        self.backend = (Bundle.main.infoDictionary?[key] as? String)?
+            .replacingOccurrences(of: "\\", with: "")
+        if let t = type {
+            if t == "love" {
+                loadExisting(category: 2)
+            } else if t == "like" {
+                loadExisting(category: 1)
+            } else if t == "dislike" {
+                loadExisting(category: -1)
+            } else if t == "unknown" {
+                loadExisting(category: 0)
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

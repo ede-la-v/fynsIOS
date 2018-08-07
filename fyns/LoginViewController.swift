@@ -22,52 +22,27 @@ class LoginViewController: UIViewController {
         print("navigate")
         if let emailText = email.text, emailText.count > 4, let passwordText = password.text, passwordText.count > 4 {
             let urlPath = "http://localhost:3001/api/users"
-            guard let endpoint = URL(string: urlPath) else {
-                print("Error creating endpoint")
-                return
-            }
             var json = [String:Any]()
-            
             json["email"] = emailText
             json["password"] = passwordText
             
-            do {
-                let data = try JSONSerialization.data(withJSONObject: json, options: [])
-                
-                var request = URLRequest(url: endpoint)
-                request.httpMethod = "POST"
-                request.httpBody = data
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                request.addValue("application/json", forHTTPHeaderField: "Accept")
-                
-                URLSession.shared.dataTask(with: request) { (data, response, error) in
-                    do {
-                        guard let data = data else {
-                            throw JSONError.NoData
-                        }
-                        guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
-                            throw JSONError.ConversionFailed
-                        }
-                        print(json)
-                        DispatchQueue.main.async{
-                            print(json["id"]!)
-                            UserDefaults.standard.set(json["id"]!, forKey: "id")
-                            UserDefaults.standard.set(true, forKey: "status")
-                            Switcher.updateRootVC()
-                        }
-                    } catch let error as JSONError {
-                        print(error.rawValue)
-                    } catch let error as NSError {
-                        print(error.debugDescription)
+            HttpRequest.post(url: urlPath, data: json){ (output) in
+                if let id = output["id"] {
+                    print(output)
+                    DispatchQueue.main.async{
+                        print(id)
+                        UserDefaults.standard.set(id, forKey: "id")
+                        UserDefaults.standard.set(true, forKey: "status")
+                        Switcher.updateRootVC()
                     }
-                    }.resume()
-            } catch {
+                }
+                
             }
         } else {
             print("error")
-            UserDefaults.standard.set(7, forKey: "id")
-            UserDefaults.standard.set(true, forKey: "status")
-            Switcher.updateRootVC()
+            //UserDefaults.standard.set(7, forKey: "id")
+            //UserDefaults.standard.set(true, forKey: "status")
+            //Switcher.updateRootVC()
         }
     }
     

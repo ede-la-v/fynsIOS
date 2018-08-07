@@ -1,0 +1,9 @@
+//
+//  ConfigLocal.xcconfig
+//  fyns
+//
+//  Created by Eric de La Varende on 06/08/2018.
+//  Copyright © 2018 Eric de La Varende. All rights reserved.
+//
+
+BACKEND_URL = http:\/\/localhost:3001/api

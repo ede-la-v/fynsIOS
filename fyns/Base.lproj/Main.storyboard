@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394" y="-25"/>
+            <point key="canvasLocation" x="342" y="801"/>
         </scene>
         <!--Test-->
         <scene sceneID="jb9-7Z-IT4">
@@ -159,6 +159,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3Q-Xu-1sT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1474" y="706"/>
+        </scene>
+        <!--Change Show View Controller-->
+        <scene sceneID="6dZ-Zs-wDZ">
+            <objects>
+                <viewController storyboardIdentifier="ChangeShowViewController" id="CYg-oL-JGU" customClass="ChangeShowViewController" customModule="fyns" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9C3-Xc-1Cv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CGL-YK-9XV">
+                                <rect key="frame" x="67" y="320" width="240" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CGL-YK-9XV" firstAttribute="leading" secondItem="eYb-PB-F8o" secondAttribute="leading" constant="67" id="3hp-E9-hhh"/>
+                            <constraint firstItem="eYb-PB-F8o" firstAttribute="trailing" secondItem="CGL-YK-9XV" secondAttribute="trailing" constant="68" id="YK5-Wh-JWM"/>
+                            <constraint firstItem="eYb-PB-F8o" firstAttribute="bottom" secondItem="CGL-YK-9XV" secondAttribute="bottom" constant="219" id="h1B-tN-9UT"/>
+                            <constraint firstItem="CGL-YK-9XV" firstAttribute="top" secondItem="eYb-PB-F8o" secondAttribute="top" constant="300" id="mqG-TV-8zr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eYb-PB-F8o"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zW1-Eo-VFF"/>
+                    <connections>
+                        <outlet property="imageShow" destination="CGL-YK-9XV" id="xaB-p7-K1U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6c-oN-EsW" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="-32"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
